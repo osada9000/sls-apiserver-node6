@@ -11,12 +11,23 @@
   },
   "main": "handler.js",
   "scripts": {
+    "test": "jest",
     "dev": "node -v",
     "deploy-dev": "sls deploy -s dev -v",
     "deploy-prod": "sls deploy -s prod -v"
   },
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "serverless-plugin-warmup": "^3.3.0-rc.1"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "0.0.30",
+    "@types/node": "^9.4.0",
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.7.0",
+    "jest": "^22.1.4",
+    "serverless": "^1.25.0",
+    "sls": "^0.1.0"
   }
 }

@@ -39,7 +39,7 @@ functions:
     events:
       - http:
           path: hello/test
-          method: get
+          method: post
           private: true
     environment:
       SAMPLE_ENV1: 'This is SAMPLE_ENV1'
