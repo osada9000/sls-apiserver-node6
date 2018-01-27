@@ -1,0 +1,22 @@
+{
+  "name": "sls-nodejs6",
+  "version": "1.0.0",
+  "description": "sls-node8-template",
+  "author": "Manabu Osada",
+  "keywords": [
+    "serverless"
+  ],
+  "engines": {
+    "node": "6.10.3"
+  },
+  "main": "handler.js",
+  "scripts": {
+    "dev": "node -v",
+    "deploy-dev": "sls deploy -s dev -v",
+    "deploy-prod": "sls deploy -s prod -v"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "serverless-plugin-warmup": "^3.3.0-rc.1"
+  }
+}
