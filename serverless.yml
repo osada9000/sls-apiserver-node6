@@ -1,0 +1,45 @@
+service: templateName
+frameworkVersion: ">=1.25.0 <2.0.0"
+provider:
+  name: aws
+  runtime: nodejs6.10
+  apiKeys:
+    - templateAPIKey
+  stage: ${opt:stage, self:custom.defaultStage}
+  region: ap-northeast-1
+  memorySize: 512
+  timeout: 30
+
+#resources: ${file(./serverless.resources.yml)}
+
+package:
+#  include:
+#    - include-me.js
+#    - include-me-dir/**
+  exclude:
+    - .git/**
+    - .gitignore
+    - .idea/**
+
+plugins:
+  - serverless-plugin-warmup
+
+custom:
+  defaultStage: dev
+  resource-suffix:
+    dev: _${self:provider.stage}
+    stg: _${self:provider.stage}
+    prod: ''
+
+functions:
+  hello:
+    handler: handler.hello
+    name: hello${self:custom.resource-suffix.${self:provider.stage}}
+    warmup: true
+    events:
+      - http:
+          path: hello/test
+          method: get
+          private: true
+    environment:
+      SAMPLE_ENV1: 'This is SAMPLE_ENV1'
